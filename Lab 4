@@ -1,0 +1,105 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "ab98a3df-89f9-4110-80c8-f1eef23cc76b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Prediction: [2 2]\n",
+      "Confusion Matrix:\n",
+      "[[0 1]\n",
+      " [0 1]]\n",
+      "Accuracy: 0.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "from sklearn import preprocessing\n",
+    "from sklearn.naive_bayes import GaussianNB\n",
+    "from sklearn.metrics import confusion_matrix, accuracy_score\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "# Data\n",
+    "data = {\n",
+    "    'Emp_ID': ['Emp0001', 'Emp0002', 'Emp0003', 'Emp0004', 'Emp0005', 'Emp0006', 'Emp0007'],\n",
+    "    'Age': [32, 40, 59, 27, 49, 56, 31],\n",
+    "    'Gender': ['Non Binary', 'Female', 'Non Binary', 'Male', 'Male', 'Non Binary', 'Male'],\n",
+    "    'Role': ['HR', 'Data Scientist', 'Software Engr', 'Software Engr', 'Sales', 'Data Scientist', 'Sales'],\n",
+    "    'Industry': ['Health', 'IT', 'Education', 'Finance', 'Consulting', 'Manufacturing', 'IT'],\n",
+    "    'Experience': [13, 3, 22, 20, 32, 6, 24],\n",
+    "    'Loc': ['Hybrid', 'Remote', 'Hybrid', 'Onsite', 'Onsite', 'Onsite', 'Remote'],\n",
+    "    'Hrs/Week': [47, 52, 46, 32, 35, 54, 51],\n",
+    "    'Stress': ['Med', 'Med', 'Med', 'High', 'High', 'Med', 'Low'],\n",
+    "    'Mental Health': ['Dep', 'Anx', 'Anx', 'Dep', 'None', 'Dep', 'Anx'],\n",
+    "    'Satisfaction': ['Unsatisfied', 'Satisfied', 'Unsatisfied', 'Unsatisfied', 'Unsatisfied', 'Satisfied', 'Neutral']\n",
+    "}\n",
+    "# Creating DataFrame\n",
+    "df = pd.DataFrame(data)\n",
+    "# Creating label encoder\n",
+    "le = preprocessing.LabelEncoder()\n",
+    "\n",
+    "# Encoding categorical features\n",
+    "df['Gender'] = le.fit_transform(df['Gender'])\n",
+    "df['Role'] = le.fit_transform(df['Role'])\n",
+    "df['Industry'] = le.fit_transform(df['Industry'])\n",
+    "df['Loc'] = le.fit_transform(df['Loc'])\n",
+    "df['Stress'] = le.fit_transform(df['Stress'])\n",
+    "df['Mental Health'] = le.fit_transform(df['Mental Health'])\n",
+    "df['Satisfaction'] = le.fit_transform(df['Satisfaction'])\n",
+    "\n",
+    "# Defining features and label\n",
+    "features = df[['Age', 'Gender', 'Role', 'Industry', 'Experience', 'Loc', 'Hrs/Week', 'Stress', 'Mental Health']]\n",
+    "label = df['Satisfaction']\n",
+    "# Splitting the data into training and testing sets\n",
+    "features_train, features_test, label_train, label_test = train_test_split(features, label, test_size=0.2, random_state=42)\n",
+    "# Model\n",
+    "model = GaussianNB()\n",
+    "model.fit(features_train, label_train)\n",
+    "# Prediction\n",
+    "predicted = model.predict(features_test)\n",
+    "print(\"Prediction:\", predicted)\n",
+    "# Confusion Matrix\n",
+    "conf_mat = confusion_matrix(label_test, predicted)\n",
+    "print(\"Confusion Matrix:\")\n",
+    "print(conf_mat)\n",
+    "# Accuracy\n",
+    "accuracy = accuracy_score(label_test, predicted)\n",
+    "print(\"Accuracy:\", accuracy)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "81b4cab8-c41d-4ccd-b7ad-89522bfaec61",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
