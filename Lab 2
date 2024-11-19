@@ -1,0 +1,127 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "99d8c563-5f58-4c6e-9892-b60e65eaf7a8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'Sheet1':    Unnamed: 0  Unnamed: 1    Name Department Semester\n",
+      "0         NaN           0  Haseeb         CS      3rd\n",
+      "1         NaN           1   Saira         SE      5th\n",
+      "2         NaN           2   Ahmed        BBA      1st\n",
+      "3         NaN           3    Asra         EE      3rd\n",
+      "4         NaN           4  Kumail         SE      1st, 'Sheet2':    Unnamed: 0  Unnamed: 1      Name Batch\n",
+      "0         NaN           0      Saad   22F\n",
+      "1         NaN           1     Hafsa   21S\n",
+      "2         NaN           2      Atif   22S\n",
+      "3         NaN           3  Summaiya   23F}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# import pandas lib as pd \n",
+    "import pandas as pd  \n",
+    "dataframe1 = pd.read_excel('AILABQs.xlsx' , sheet_name= None) \n",
+    "print(dataframe1) \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "c3df1feb-8d22-4aa1-b6c8-51f08fe83ff6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "        Math  Science  English  History\n",
+      "Ali       85       80       75       70\n",
+      "Amir      90       85       80       75\n",
+      "Kamran    78       88       85       80\n",
+      "Sara      88       90       90       85\n",
+      "Zara      92       95       95       90\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "#Defining the data for dataframe\n",
+    "data = {\n",
+    "    'Math': [85, 90, 78, 88, 92],\n",
+    "    'Science': [80, 85, 88, 90, 95],\n",
+    "    'English': [75, 80, 85, 90, 95],\n",
+    "    'History': [70, 75, 80, 85, 90]\n",
+    "}\n",
+    "#Create dataframe and set index\n",
+    "index_values = ['Ali', 'Amir', 'Kamran', 'Sara', 'Zara']\n",
+    "df = pd.DataFrame(data, index=index_values)\n",
+    "#Display the DataFrame\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "dd55fbe4-6042-46bc-9ac0-490cf9df0dcf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   Unnamed: 0  Unnamed: 1\n",
+      "0         NaN           0\n",
+      "1         NaN           1\n",
+      "2         NaN           2\n",
+      "3         NaN           3\n",
+      "4         NaN           4\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "file_path = 'AILABQs.xlsx'\n",
+    "df = pd.read_excel(file_path)\n",
+    "#Select the first two columns\n",
+    "first_two_columns = df.iloc[:, :2]\n",
+    "# Print the selected columns\n",
+    "print(first_two_columns)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "994a1210-cfdd-4b74-9dee-c286cddffca3",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
