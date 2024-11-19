@@ -1,0 +1,97 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "95e939f0-fc5d-43c1-b35e-1da3a0dcc180",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a number:  6\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The result is: 17.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Get user input\n",
+    "user_input = input(\"Enter a number: \")\n",
+    "# Convert the input to a float (or int) to handle numeric operations\n",
+    "try:\n",
+    "    number = float(user_input)\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input Enter a valid number.\")\n",
+    "else:\n",
+    "    # Perform the calculations\n",
+    "    result = ((number + 3) * 2) - 4 + 3\n",
+    "    # Print the result\n",
+    "    print(\"The result is:\", result) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "34d993ef-6980-4509-9357-5a6cd45cddaa",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Please enter the temperature in Celsius:  200\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The temperature in Fahrenheit is: 392.00°F\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Taking user input\n",
+    "celsius_input = input(\"Please enter the temperature in Celsius: \")\n",
+    "# Checking\n",
+    "if celsius_input.isdigit() or (celsius_input.startswith('-') and celsius_input[1:].isdigit()):\n",
+    "    # Converting input to float\n",
+    "    celsius = float(celsius_input)\n",
+    "    # Convert Celsius to Fahrenheit\n",
+    "    fahrenheit = (celsius * 1.8) + 32\n",
+    "    # Print the result\n",
+    "    print(f\"The temperature in Fahrenheit is: {fahrenheit:.2f}°F\")\n",
+    "else:\n",
+    "    print(\"Invalid input. Please enter a valid number.\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
